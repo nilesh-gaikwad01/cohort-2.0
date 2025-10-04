@@ -1,0 +1,1 @@
+![alt text](../../cohort_journal/0-1/0-1.jpg) ![alt text](../../cohort_journal/0-1/1-100.jpg)
