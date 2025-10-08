@@ -1,6 +1,6 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
-const jwtPassword = "12345"
+const jwtPassword = "123456"
 
 const app = express();
 app.use(express.json());
@@ -12,17 +12,14 @@ const All_Users = [
       {
     username : "hitesh_Chaudhari",
     password : "123",
-    email : "Hiesh@123.com"
 },
   {
     username : "kirat_singh",
     password : "1234",
-    email : "kirat@123.com"
 },
   {
     username : "striver_dsa",
     password : "12345",
-    email : "striver@123.com"
 }
 ]
 
@@ -63,13 +60,16 @@ app.post("/signIn", (req, res)=> {
 app.get("/users", function (req, res){
     const token = req.headers.authorization;
     try{
-        const decoded = jwt.verify(token ,jwtPassword);
+        const decoded = jwt.verify(token, jwtPassword);
         const username = decoded.username;
+    
+      // return a list of users other than this username
+      // Filter the All_Users array to remove the logged-in user
+        const filteredUsers = All_Users.filter(user => user.username !== username);
 
-        // It creates a new array excluding logged in user.
-
-        const otherUsers = All_Users.filter(u =>u.username !== username);
-        return res.json(otherUsers);
+        res.json({
+        users : filteredUsers
+    })
 
     }catch(err) {
         return res.status(403).json({
