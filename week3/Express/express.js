@@ -35,6 +35,6 @@ app.delete("user/:id", (req, res) => {
   res.send(`User with Id ${req.params.id} deleted`)
 });
 
-app.listen(3003, () => {
+app.listen(6000, () => {
   console.log("Server running at http://localhost:3003");
 });

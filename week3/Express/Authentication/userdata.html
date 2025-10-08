@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+
+   <div id="container">
+      <button onclick="getAnimaldata()">Button 1 </button>
+      <button class="btn">Button 2</button>
+   </div>
+   <script>
+
+//  write a simple function and async function
+
+// function getAnimaldata(){
+//     fetch("https://api.github.com/users/nilesh-gaikwad01")
+//     .then(function (response){
+//         response.json()
+// }).then(function(finaldata){
+//     console.log(finaldata);
+    
+// })
+// }
+
+// getAnimaldata(); // function call
+
+
+// get the api data using async function
+
+const button = document.getElementById("container");
+button.addEventListener("click", async function getAnimaldata() {
+   const response =  await fetch("https://api.github.com/users/nilesh-gaikwad01");
+   const finaldata = await response.json()
+   console.log(finaldata);
+
+   button.innerHTML = JSON.stringify(finaldata) // show the data on page
+
+   console.log(button);
+      
+ 
+} )
+
+// getAnimaldata();  //To get the api data in console 
+
+   </script>
+   
+</body>
+</html>
