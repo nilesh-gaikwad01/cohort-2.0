@@ -1,7 +1,7 @@
-#Middlewaares
+# Middlewares
 
 
-##  What are the middlewares```
+##  What are the middlewares
 
 
 - Middlewares are the functions that runs between the request (client) and response (server)
@@ -58,6 +58,8 @@ app.listen(3000, () => console.log("Server running at the port 3000"));
    `const helmet = require("helmet");` use it into
    `app.use(helmet());`
 
+ 
+ > ### Note : body-parser is the  Older package for parsing the incoming req.body     and now it build into the express.json,
  > ### Note : we can add the custom Middleware  and use it
 
  ```js
