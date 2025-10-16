@@ -87,4 +87,3 @@ app.get("/", function(req, res){
 app.listen(6060, function (){
     console.log("Server is running on the Port : http://localhost:6060/")
 })
-
