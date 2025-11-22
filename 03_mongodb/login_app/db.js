@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
+const env = require('dotenv').config();
+
 
 
 const app = express();
@@ -12,7 +14,9 @@ app.use(cors());
 const jwtPassword = "123456"
 const PORT = 1020; 
 // connect to the DB
-  mongoose.connect("mongodb+srv://nileshngaikwad96_db_user:Nomad123@cluster0.jnuh08l.mongodb.net/authdb")
+ mongoose.connect(process.env.MONGO_URL)
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch(err => console.log(err));
 
 // Create User Schema
 
@@ -38,7 +42,7 @@ res.json({msg : "User is registred sucessfully"})
 
 });
 
- app.post("/signIn", async(req, res) => {
+ app.post("/logIn", async(req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
