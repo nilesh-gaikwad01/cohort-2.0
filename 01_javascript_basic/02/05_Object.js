@@ -1,7 +1,7 @@
 
 // Object
 
-// Object Methods Explanation
+// here are Object Methods 
 
 function objectMethods(obj) {
   console.log("Original Object:", obj);

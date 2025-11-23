@@ -1,6 +1,6 @@
 
 
-// Use of Math in javascript 
+// Use of Math in javascript.
 
 function mathMethods(value) {
   console.log("Original Value:", value);

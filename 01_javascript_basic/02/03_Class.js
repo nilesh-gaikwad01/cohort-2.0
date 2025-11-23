@@ -1,3 +1,4 @@
+// Use class 
 
 class Animal {
   constructor(name, legCount) {

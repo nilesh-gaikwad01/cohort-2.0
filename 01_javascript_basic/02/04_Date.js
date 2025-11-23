@@ -3,6 +3,7 @@ function dateMethods() {
   console.log("Current Date:", currentDate);
 
   // Getting various components of the date
+
   console.log("Date:", currentDate.getDate());
   console.log("Month:", currentDate.getMonth() + 1); // Months are zero-indexed, so adding 1
   console.log("Year:", currentDate.getFullYear());
@@ -11,6 +12,7 @@ function dateMethods() {
   console.log("Seconds:", currentDate.getSeconds());
 
   // Setting components of the date
+
   currentDate.setFullYear(2022);
   console.log("After setFullYear:", currentDate);
 
@@ -18,6 +20,7 @@ function dateMethods() {
   console.log("After setMonth:", currentDate);
 
   // Getting and setting time in milliseconds since 1970
+
   console.log("Time in milliseconds since 1970:", currentDate.getTime());
 
   const newDate = new Date(2023, 8, 15); // Creating a new date
@@ -25,4 +28,5 @@ function dateMethods() {
 }
 
 // Example Usage for Date Methods
+
 dateMethods();

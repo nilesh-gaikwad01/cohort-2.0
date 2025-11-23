@@ -1,6 +1,7 @@
-/*
+/* 
 	1. Arrays
 	2. Objects
+
 */
 
 //1. Write a program that prints all the even numbers in an array
