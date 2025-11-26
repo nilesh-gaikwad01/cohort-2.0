@@ -1,6 +1,11 @@
 
+const {Admin} = require("../db/index");
+const mongoose = require("mongoose");
+
 // Implement the logic of the admin middleware
 // You need to check the headers and validate the admin from the admin DB. Check readme for the exact headers to be expected
+// we can easily use the async await function rather than normal function
+
 
  function adminMiddleware(res, req, next){
     const username = req.body.username;
@@ -9,8 +14,8 @@
     Admin.findOne({
         username: username,
         password : password
-    })
-    .then (function(value){
+    }) 
+    .then (function(value){ 
         if(value){
             next();
         } else {

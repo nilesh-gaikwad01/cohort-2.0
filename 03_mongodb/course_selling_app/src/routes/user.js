@@ -1,11 +1,12 @@
 const {Router} = require('express');
 const router = Router();
-const userMiddleware = require("../middlewares/user");;
+const userMiddleware = require("../middlewares/user");
+const { User, Course } = require("../db");
 const { json } = require('body-parser');
-
+const mongoose = require("mongoose");
 // User Routes
 
-router.post("/user", (req, res) => {
+router.post("/Signup", (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -63,5 +64,4 @@ router.get("/purchasedCourses", userMiddleware, async (req, res) => {
 
 });
 
-
-module.exports = router 
+module.exports = router

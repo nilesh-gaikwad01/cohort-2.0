@@ -1,8 +1,11 @@
 const {Router, response} = require('express');
 const adminMiddleware = require('../middlewares/admin');
+const { Admin, Course } = require("../db");
 const router = Router();
+const mongoose = require("mongoose");
 
 // Admin Routes
+
 router.post("/signup", async(req, res) => {
     const username = req.body.username;
     const password = req.body.password;

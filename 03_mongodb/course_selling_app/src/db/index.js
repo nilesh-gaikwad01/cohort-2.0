@@ -1,26 +1,26 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 // connect mongoose
 
 mongoose.connect(process.env.MONGO_URL,{
-        dbNames: course_selling_app
+        dbName: "course_selling_app"
 })
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log(err));
 
-// Define schema
+// Define User and Admin schema
 
-const adminSchema = new mongoose.Schema({
+const AdminSchema = new mongoose.Schema({
     username : String,
     password : String
 });
 
-const userSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     username : String,
     password : String
 });
 
-const courseSchema = new mongoose.Schema({
+const CourseSchema = new mongoose.Schema({
     title : String,
     discription : String,
     imagelink : String,
@@ -29,9 +29,9 @@ const courseSchema = new mongoose.Schema({
 
 // Create User Model
 
-const Admin = mongoose.model("Admin", adminSchema);
-const User = mongoose.model("User", userSchema);
-const Course = mongoose.model("Course", courseSchema);
+const Admin = mongoose.model("Admin", AdminSchema);
+const User = mongoose.model("User", UserSchema);
+const Course = mongoose.model("Course", CourseSchema);
 
 module.exports = {
     Admin,

@@ -1,5 +1,7 @@
-// Middlewares for handling the auth
+const  { User } = require("../db/index")
 
+// Middlewares for handling the 
+const mongoose = require("mongoose");
 
 function userMiddleware(req, res, next){
     const username = req.body.username;
