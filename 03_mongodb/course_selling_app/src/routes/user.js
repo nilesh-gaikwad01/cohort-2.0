@@ -10,17 +10,17 @@ router.post("/Signup", (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    User.Create({
+    User.create({
         username,
         password
     }); 
 
-    res.status(403).json({
+    res.json({
         msg: "User created seccessfully"
     });
 });
 
-router.get("/courses", userMiddleware,  async (req, res) => {
+router.get("/courses",  async (req, res) => {
 
     const Response = await Course.find({});
 
@@ -31,7 +31,7 @@ router.get("/courses", userMiddleware,  async (req, res) => {
 
 router.get("/courses/:courseId", userMiddleware, async (req, res) => {
     const courseId = req.params.courseId;
-    const username = req.body.username;
+    const username = req.headers.username;
 
     await User.findOne({
         username : username
@@ -47,7 +47,7 @@ router.get("/courses/:courseId", userMiddleware, async (req, res) => {
 
 router.get("/purchasedCourses", userMiddleware, async (req, res) => {
     const user = await User.findOne({
-        username: req.body.username
+        username: req.headers.username
     });
 
     console.log(user.purchasedCourse);

@@ -7,9 +7,9 @@ const mongoose = require("mongoose");
 // we can easily use the async await function rather than normal function
 
 
- function adminMiddleware(res, req, next){
-    const username = req.body.username;
-    const password = req.body.password;
+ function adminMiddleware(req, res, next){
+    const username = req.headers.username;
+    const password = req.headers.password;
 
     Admin.findOne({
         username: username,

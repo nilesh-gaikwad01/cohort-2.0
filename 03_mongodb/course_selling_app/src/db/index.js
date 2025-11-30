@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// connect mongoose
+// connect to the mongoose
 
 mongoose.connect(process.env.MONGO_URL,{
         dbName: "course_selling_app"
@@ -17,7 +17,11 @@ const AdminSchema = new mongoose.Schema({
 
 const UserSchema = new mongoose.Schema({
     username : String,
-    password : String
+    password : String,
+    purchasedCourse : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Course'
+    }]
 });
 
 const CourseSchema = new mongoose.Schema({

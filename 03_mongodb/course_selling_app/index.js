@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
     res.send("Hello Server")
 })
 app.use("/admin", adminRouter)
-app.use("user/", userRouter)
+app.use("/user", userRouter)
 
 
 const PORT = 1030;
